@@ -4,9 +4,6 @@ import {ethers} from 'ethers'
 import Safe, {AddOwnerTxParams, EthersAdapter} from '@safe-global/protocol-kit'
 import {SafeFactory} from '@safe-global/protocol-kit'
 import {SafeAccountConfig} from '@safe-global/protocol-kit'
-import {update} from 'immutable';
-
-//process.env.ALCHEMY_MUMBAI_URL
 
 let acc0 = process.env.ETHEREUM_PRIVATE_KEY as string;
 // goerli deploys
