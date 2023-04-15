@@ -12,6 +12,8 @@
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.9.0",
     "@superfluid-finance/sdk-core": "^0.6.3",
+    "@web3auth/base": "^5.1.0",
+    "@web3auth/modal": "^5.1.1",
     "framer-motion": "^6.3.0",
     "next": "latest",
     "react": "^18.2.0",
