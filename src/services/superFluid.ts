@@ -1,5 +1,5 @@
 import { Framework } from "@superfluid-finance/sdk-core";
-import { web3AuthService } from "./web3auth";
+import { web3AuthService } from "./web3Auth";
 import { formatEther } from "ethers/lib/utils";
 
 type FlowInfo = {

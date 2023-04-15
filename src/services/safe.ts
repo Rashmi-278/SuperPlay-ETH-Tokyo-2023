@@ -4,7 +4,7 @@ import {
   OperationType,
 } from "@safe-global/safe-core-sdk-types";
 import { BigNumberish, Contract, ethers } from "ethers";
-import { web3AuthService } from "./web3auth";
+import { web3AuthService } from "./web3Auth";
 
 export class SafeService {
   private safeSDK: Safe;
