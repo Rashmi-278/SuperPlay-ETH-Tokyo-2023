@@ -16,7 +16,7 @@ class Web3AuthService {
         chainId,
       },
       clientId:
-        "BBxeOVZDPiBp_De5EEUhNF9ij10IbNJviC97g1ZdzBcOC0foOYKYLLwbRNm-2BScIj5xceXSVTTcFenwIontCSQ",
+        "BE8StSbhTkPm29RxI4mckB-TtOKnhggiIlSWlPKBkpOAtiOW4KIhZKDexcgzgK49X6-lATXQAoGOffgXJ1oittc",
     });
 
     await this.web3Auth.initModal({});

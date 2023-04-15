@@ -19,13 +19,15 @@ import {
   Container,
 } from "@chakra-ui/react";
 import Header from "../components/Header";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { web3AuthService } from "../services/web3Auth";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 export default function Page1Test() {
   const router = useRouter();
   const [info, setInfo] = useState<Partial<OpenloginUserInfo>>({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function loadInfo() {
@@ -33,6 +35,19 @@ export default function Page1Test() {
       setInfo(info);
     }
     loadInfo();
+  }, []);
+
+  const createSafe = useCallback(async () => {
+    setLoading(true);
+
+    try {
+      const addr = await web3AuthService.getProvider().getSigner().getAddress();
+      await axios.post("/api/create_safe", { ethAddress: addr });
+    } catch (err) {
+      setLoading(false);
+      throw err;
+    }
+    setLoading(false);
   }, []);
 
   return (
@@ -115,9 +130,11 @@ export default function Page1Test() {
                 size={"lg"}
                 mt={50}
                 flex={"1 0 auto"}
-                onClick={() => router.push("/profile")}
+                onClick={() => {
+                  !loading && createSafe().then(() => router.push("/profile"));
+                }}
               >
-                Create Account
+                {loading ? "Loading..." : "Create Account"}
               </Button>
             </VStack>
           </Center>
