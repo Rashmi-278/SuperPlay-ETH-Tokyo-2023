@@ -1,6 +1,9 @@
 # SuperPlay
 ![Banner - Landscape - Special Offer - Up to 50% - Earphone bluetooth](https://user-images.githubusercontent.com/45459057/232254213-55153121-8630-4029-aaa8-388f6279ee3f.png)
 
+## Pitch deck
+https://tome.app/super-play/superplay-eth-global-tokyo-clghe2hqm08gl8x40sfbt81qe
+
 ## **User Story**
 
 As a gamer, I want to try out web3 games without having to go through the hassle of setting up a wallet and buying assets, so that I can understand how to play the game with no knowledge about crypto. 
