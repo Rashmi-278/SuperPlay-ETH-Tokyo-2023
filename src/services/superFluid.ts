@@ -2,7 +2,7 @@ import { Framework } from "@superfluid-finance/sdk-core";
 import { web3AuthService } from "./web3Auth";
 import { formatEther } from "ethers/lib/utils";
 import { Contract } from "@ethersproject/contracts";
-import SuperPlayABI from "../../hardhat/artifacts/contracts/SuperPlay.sol/SuperPlay.json";
+import SuperPlayABI from "./SuperPlay.json";
 
 type FlowInfo = {
   balance: string; // for display, formatted
