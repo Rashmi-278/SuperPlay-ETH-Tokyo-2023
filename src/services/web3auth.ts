@@ -6,6 +6,8 @@ import { OpenloginUserInfo } from "@toruslabs/openlogin";
 class Web3AuthService {
   private web3Auth: Web3Auth;
   private web3AuthProvider: SafeEventEmitterProvider;
+  private web3Provider: Web3Provider;
+  private chainId: string;
 
   async connect(chainId: string): Promise<Provider> {
     this.web3Auth = new Web3Auth({
@@ -23,7 +25,9 @@ class Web3AuthService {
     }
 
     this.web3AuthProvider = web3AuthProvider;
-    return new Web3Provider(web3AuthProvider);
+    this.chainId = chainId;
+    this.web3Provider = new Web3Provider(web3AuthProvider);
+    return this.web3Provider;
   }
 
   async getInfo(): Promise<Partial<OpenloginUserInfo>> {
@@ -31,6 +35,20 @@ class Web3AuthService {
       throw new Error("Not connected to Web3Auth provider.");
 
     return this.web3Auth.getUserInfo();
+  }
+
+  getChainId(): string {
+    if (!this.web3AuthProvider)
+      throw new Error("Not connected to Web3Auth provider.");
+
+    return this.chainId;
+  }
+
+  getProvider(): Web3Provider {
+    if (!this.web3AuthProvider)
+      throw new Error("Not connected to Web3Auth provider.");
+
+    return this.web3Provider;
   }
 }
 
