@@ -18,6 +18,7 @@ import {
   Container,
 } from "@chakra-ui/react";
 import Header from "../components/Header";
+import ProfileCard from "../components/ProfileCardPro";
 
 export default function Page1Test() {
   return (
@@ -46,18 +47,17 @@ export default function Page1Test() {
           direction="column"
           alignItems="start"
           justifyContent="center"
-          ml={100}
           px={{
             base: 4,
             lg: 20,
           }}
-          py={24}
+          py={8}
         >
           <Center>
-            <Avatar src="top_image.png" width={"500px"} height={"500px"} />
+            <ProfileCard/>
           </Center>
         </Flex>
-        <HStack ml={200}>
+        <HStack ml={50}>
           <Center>
             <VStack
               spacing={4}
@@ -66,12 +66,12 @@ export default function Page1Test() {
               alignItems={"right"}
             >
               <Box as="h1" fontSize="6xl" fontWeight="bold" color="white">
-                Your Name
+                Become a pro gamer
               </Box>
               <InputGroup size={"lg"}>
                 <InputLeftAddon
-                  children="Email"
-                  width={"120px"}
+                  children="Wallet Address"
+                  width={"180px"}
                   rounded={"2xl"}
                   borderRightStyle="dashed"
                   borderRightColor={"black"}
@@ -81,8 +81,8 @@ export default function Page1Test() {
                 <Input
                   type={"text"}
                   size={"lg"}
-                  placeholder={"john@doe.net"}
-                  color={"black"}
+                  placeholder={"0xsuperlongaddress"}
+                  color={"white"}
                   bg={"white"}
                   rounded={"2xl"}
                   border={0}
@@ -96,7 +96,7 @@ export default function Page1Test() {
                 mt={50}
                 flex={"1 0 auto"}
               >
-                Create Account
+                Charge
               </Button>
             </VStack>
           </Center>

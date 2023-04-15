@@ -18,10 +18,11 @@ import {
   Container,
 } from "@chakra-ui/react";
 import Header from "../components/Header";
+import ProfileCard from "../components/ProfileCard";
 
 export default function Page1Test() {
   return (
-    <>
+    <Box height="100vh">
       <Header />
       <SimpleGrid
         columns={{
@@ -29,7 +30,7 @@ export default function Page1Test() {
           md: 2,
         }}
         spacing={0}
-        background={"black"}
+        background={"#000000"}
         _after={{
           bg: "black",
           opacity: 0.25,
@@ -49,12 +50,12 @@ export default function Page1Test() {
           ml={100}
           px={{
             base: 4,
-            lg: 20,
+            lg: 10,
           }}
-          py={24}
+          py={8}
         >
           <Center>
-            <Avatar src="top_image.png" width={"500px"} height={"500px"} />
+            <ProfileCard />
           </Center>
         </Flex>
         <HStack ml={200}>
@@ -68,40 +69,15 @@ export default function Page1Test() {
               <Box as="h1" fontSize="6xl" fontWeight="bold" color="white">
                 Your Name
               </Box>
-              <InputGroup size={"lg"}>
-                <InputLeftAddon
-                  children="Email"
-                  width={"120px"}
-                  rounded={"2xl"}
-                  borderRightStyle="dashed"
-                  borderRightColor={"black"}
-                  borderRightWidth="3px"
-                />
+              <Button size={"lg"}>Tutorial</Button>
+              <Button size={"lg"}>Buy Gaming Items</Button>
+              <Button size={"lg"}>Battle To Other Users</Button>
+              <Button size={"lg"}>Feedback</Button>
 
-                <Input
-                  type={"text"}
-                  size={"lg"}
-                  placeholder={"john@doe.net"}
-                  color={"black"}
-                  bg={"white"}
-                  rounded={"2xl"}
-                  border={0}
-                />
-              </InputGroup>
-              <Button
-                bg={"white"}
-                rounded={"2xl"}
-                color={"black"}
-                size={"lg"}
-                mt={50}
-                flex={"1 0 auto"}
-              >
-                Create Account
-              </Button>
             </VStack>
           </Center>
         </HStack>
       </SimpleGrid>
-    </>
+    </Box>
   );
 }
