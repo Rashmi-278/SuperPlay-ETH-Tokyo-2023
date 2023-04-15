@@ -52,6 +52,23 @@ contract SuperPlay is Ownable {
         emit GameCreated(gameId, token, superToken, rate);
     }
 
+    function createGameWithSuperToken(
+        ISuperToken superToken,
+        int96 rate,
+        address receiver
+    ) public returns (uint256 gameId) {
+        gameId = games.length;
+        GameInfo memory gameInfo = GameInfo(superToken, rate, receiver);
+        games.push(gameInfo);
+
+        emit GameCreated(
+            gameId,
+            ERC20WithTokenInfo(superToken.getUnderlyingToken()),
+            superToken,
+            rate
+        );
+    }
+
     function registerForGame(uint256 gameId) public {
         GameInfo memory game = games[gameId];
         game.token.createFlowFrom(msg.sender, game.receiver, game.rate);
