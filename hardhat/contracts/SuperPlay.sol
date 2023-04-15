@@ -20,6 +20,15 @@ contract SuperPlay is Ownable {
     GameInfo[] public games;
     ISuperTokenFactory private superTokenFactory;
 
+    event GameCreated(
+        uint256 indexed gameId,
+        ERC20WithTokenInfo token,
+        ISuperToken superToken,
+        int96 rate
+    );
+    event Register(uint256 indexed gameId, address indexed user);
+    event Unregister(uint256 indexed gameId, address indexed user);
+
     constructor(ISuperTokenFactory _superTokenFactory) {
         superTokenFactory = _superTokenFactory;
     }
@@ -36,16 +45,20 @@ contract SuperPlay is Ownable {
         gameId = games.length;
         GameInfo memory gameInfo = GameInfo(superToken, rate, receiver);
         games.push(gameInfo);
+
+        emit GameCreated(gameId, token, superToken, rate);
     }
 
     function registerGame(uint256 gameId) public {
         GameInfo memory game = games[gameId];
         game.token.createFlowFrom(msg.sender, game.receiver, game.rate);
+        emit Register(gameId, msg.sender);
     }
 
     function unregisterGame(uint256 gameId) public {
         GameInfo memory game = games[gameId];
         game.token.deleteFlowFrom(msg.sender, game.receiver);
+        emit Unregister(gameId, msg.sender);
     }
 
     function getFlowInfo(
