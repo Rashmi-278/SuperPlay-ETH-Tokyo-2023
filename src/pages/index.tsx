@@ -31,31 +31,40 @@ import { Container } from "../components/Container";
 import { Main } from "../components/Main";
 import Header from "../components/Header";
 import { title } from "process";
+import BackgroundImage from "../components/BackgroundImage";
 const Index = () => (
-<Container height="100vh"  bgColor={'blackAlpha.800'} >
+  // add black layer screen over an image in background in chakra ui
+  <Box
+    bgImage="bgbg.jpg"
+    height="100vh"
+    _before={{
+      bgImage: "bgbg.jpg",
+      bgSize: "cover",
+      bgPosition: "center",
+      bgRepeat: "no-repeat",
+      position: "relative",
+      height: "100vh",
+    }}
+  >
     <Header />
-    <Center mt="30vh" mb={'5vh'}>
+    <Center mt="30vh" mb={"5vh"}>
       <Heading textColor={"White"} fontSize="6vw">
         Start your journey for free
       </Heading>
     </Center>
 
-    <Flex>
-      <Center>
+    <Center>
       <Button
-          bg={"white"}
-          rounded={"2xl"}
-          color={"black"}
-          size={"lg"}
-          width={'120px'}
-          flex={"1 0 auto"}
-    
-        >
-          Start
-        </Button>
-
-      </Center>
-      {/* <Stack spacing={4} direction={{ base: "column", md: "row" }} w={"full"}>
+        bg={"white"}
+        rounded={"2xl"}
+        color={"black"}
+        size={"lg"}
+        width={"120px"}
+      >
+        Start
+      </Button>
+    </Center>
+    {/* <Stack spacing={4} direction={{ base: "column", md: "row" }} w={"full"}>
         <InputGroup size={"lg"}>
           <InputLeftAddon children="Email" width={'120px'} rounded={"2xl"} borderRightStyle='dashed' borderRightColor={'black'} borderRightWidth='3px' />
 
@@ -77,16 +86,12 @@ const Index = () => (
 
         
       </Stack> */}
-    
-    </Flex>
-    <HStack width={'10vw'}>
-        <Image src="safe.png" />
-        <Image src="polygon-matic-logo.png" />
-        <Image src="superfluid.svg" />
+    <HStack width={"10vw"}>
+      <Image src="safe.png" />
+      <Image src="polygon-matic-logo.png" />
+      <Image src="superfluid.svg" />
     </HStack>
-
-   
-  </Container>
+  </Box>
 );
 
 export default Index;
