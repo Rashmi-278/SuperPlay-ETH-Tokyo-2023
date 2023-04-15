@@ -1,4 +1,4 @@
-# SuperPlay [Buidling in progress]
+# SuperPlay 
 
 ## **User Story**
 
@@ -13,6 +13,14 @@ As a gamer, I want to try out web3 games without having to go through the hassle
 5. I can start playing the game without using any assets in my wallet for a limited time (e.g., 1 week).
 6. During the trial, the gaming project covers the gas fees for my transactions using Biconomy.
 7. After the trial, I can choose to subscribe to the game by paying a fee in the gaming project's ERC20 token, which will be charged to my wallet automatically every week.
+
+SuperPlay aims to provide a streamlined and user-friendly onboarding process for new players by removing the complexity of setting up a wallet and buying assets. The use of contract wallets and gas-less transactions with Safe Onramp and Relay Kits enables a seamless payment experience with credit cards, reducing the need for users to hold cryptocurrency or understand gas fees.
+
+Additionally, by providing a limited time trial period with a small amount of the gaming project's ERC20 token, SuperPlay allows users to try out the game without any investment, reducing the barrier to entry and encouraging more users to explore decentralized gaming.
+
+Overall, SuperPlay's UX optimization strategies aim to create a user-friendly and accessible environment that allows both seasoned and non-technical users to experience and enjoy decentralized gaming with ease.
+
+Account abstraction: https://github.com/Rashmi-278/SuperPlay-ETH-Tokyo-2023/blob/2946e863287379b8b9c0e9a41c67c488f555df04/pages/api/create_safe.ts#L60
 
 ## **Features**
 
