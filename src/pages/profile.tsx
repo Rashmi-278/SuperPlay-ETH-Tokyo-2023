@@ -1,3 +1,4 @@
+import { OpenloginUserInfo } from "@toruslabs/openlogin";
 import {
   SimpleGrid,
   Box,
@@ -19,8 +20,20 @@ import {
 } from "@chakra-ui/react";
 import Header from "../components/Header";
 import ProfileCard from "../components/ProfileCard";
+import { useEffect, useState } from "react";
+import { web3AuthService } from "../services/web3Auth";
 
 export default function Page1Test() {
+  const [info, setInfo] = useState<Partial<OpenloginUserInfo>>({});
+
+  useEffect(() => {
+    async function loadInfo() {
+      const info = await web3AuthService.getInfo();
+      setInfo(info);
+    }
+    loadInfo();
+  }, []);
+
   return (
     <Box height="100vh">
       <Header />
@@ -55,25 +68,29 @@ export default function Page1Test() {
           py={8}
         >
           <Center>
-            <ProfileCard />
+            <ProfileCard
+              isNew={true}
+              imageURL={info.profileImage}
+              name={info.name}
+              showCharge={true}
+            />
           </Center>
         </Flex>
         <HStack ml={200}>
-          <Center>
+          <Center w={300}>
             <VStack
               spacing={4}
               direction={{ base: "column", md: "row" }}
-              w={"full"}
+              w={"100%"}
               alignItems={"right"}
             >
               <Box as="h1" fontSize="6xl" fontWeight="bold" color="white">
-                Your Name
+                {info.name}
               </Box>
               <Button size={"lg"}>Tutorial</Button>
               <Button size={"lg"}>Buy Gaming Items</Button>
               <Button size={"lg"}>Battle To Other Users</Button>
               <Button size={"lg"}>Feedback</Button>
-
             </VStack>
           </Center>
         </HStack>

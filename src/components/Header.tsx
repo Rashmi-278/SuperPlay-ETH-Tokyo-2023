@@ -17,6 +17,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import NextLink from "next/link";
 
 const NavLink = ({ children }: { children: ReactNode }) => (
   <Link
@@ -40,9 +41,11 @@ export default function Header() {
     <>
       <Box bg="#000000" px={4} width="100vw">
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Link href="/">
-            <img src="logo.png" alt="logo" height={"40px"} width={"100px"} />
-          </Link>
+          <NextLink href="/" passHref legacyBehavior>
+            <Link>
+              <img src="logo.png" alt="logo" height={"40px"} width={"100px"} />
+            </Link>
+          </NextLink>
         </Flex>
       </Box>
     </>

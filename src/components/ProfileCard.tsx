@@ -15,15 +15,15 @@ import {
   IconButton,
   Link,
 } from "@chakra-ui/react";
+import NextLink from "next/link";
 import { BsStar, BsStarFill, BsStarHalf, BsWallet2 } from "react-icons/bs";
 
-const data = {
-  isNew: true,
-  imageURL: "top_image.png", // profile picture
-  name: "User Name",
-};
-
-function ProfileCard() {
+function ProfileCard(data: {
+  isNew: boolean;
+  imageURL: string;
+  name: string;
+  showCharge: boolean;
+}) {
   return (
     <Flex p={10} w="full" alignItems="center" justifyContent="center">
       <Box
@@ -48,16 +48,12 @@ function ProfileCard() {
           src={data.imageURL}
           alt={`Picture of ${data.name}`}
           roundedTop="lg"
+          objectFit={"cover"}
+          width={"100%"}
+          minWidth={382}
         />
 
         <Box p="6">
-          <Box alignItems="baseline">
-            {
-              <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
-                Trail
-              </Badge>
-            }
-          </Box>
           <Flex mt="1" justifyContent="space-between" alignContent="center">
             <Box
               fontSize="2xl"
@@ -68,25 +64,35 @@ function ProfileCard() {
             >
               {data.name}
             </Box>
-
-            <ButtonGroup size="sm" isAttached variant="outline">
-              <Link href="/chargeWallet">
-                <Button>Add Wallet</Button>
-                <IconButton
-                  aria-label="Add Wallet"
-                  icon={<AddIcon />}
-                  disabled
-                />
-              </Link>
-            </ButtonGroup>
           </Flex>
 
           <Flex justifyContent="space-between" alignContent="center">
-            <Box fontSize="2xl" color={useColorModeValue("gray.800", "white")}>
-              <Box as="span" color={"gray.600"} fontSize="sm">
-                14 Days Remaining
+            <Box
+              fontSize="2xl"
+              color={useColorModeValue("gray.800", "white")}
+              w={"100%"}
+            >
+              <Box
+                as="p"
+                color={"gray.600"}
+                fontSize="xs"
+                display={"flex"}
+                justifyContent={"space-between"}
+              >
+                <span>1400 $SP</span>
+                <span>100 $SP/week</span>
               </Box>
               <Progress value={20} size="xs" colorScheme="pink" />
+
+              {data.showCharge ? (
+                <ButtonGroup size="sm" isAttached variant="outline">
+                  <NextLink href="/chargeWallet" legacyBehavior passHref>
+                    <Link>
+                      <Button>Charge $SP</Button>
+                    </Link>
+                  </NextLink>
+                </ButtonGroup>
+              ) : null}
             </Box>
           </Flex>
         </Box>

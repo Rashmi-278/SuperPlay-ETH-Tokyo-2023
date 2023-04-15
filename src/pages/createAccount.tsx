@@ -1,3 +1,4 @@
+import { OpenloginUserInfo } from "@toruslabs/openlogin";
 import {
   SimpleGrid,
   Box,
@@ -18,8 +19,22 @@ import {
   Container,
 } from "@chakra-ui/react";
 import Header from "../components/Header";
+import { useEffect, useState } from "react";
+import { web3AuthService } from "../services/web3Auth";
+import { useRouter } from "next/router";
 
 export default function Page1Test() {
+  const router = useRouter();
+  const [info, setInfo] = useState<Partial<OpenloginUserInfo>>({});
+
+  useEffect(() => {
+    async function loadInfo() {
+      const info = await web3AuthService.getInfo();
+      setInfo(info);
+    }
+    loadInfo();
+  }, []);
+
   return (
     <>
       <Header />
@@ -54,7 +69,12 @@ export default function Page1Test() {
           py={24}
         >
           <Center>
-            <Avatar src="top_image.png" width={"500px"} height={"500px"} />
+            <Avatar
+              src={info.profileImage}
+              objectFit={"cover"}
+              width={"500px"}
+              height={"500px"}
+            />
           </Center>
         </Flex>
         <HStack ml={200}>
@@ -66,7 +86,7 @@ export default function Page1Test() {
               alignItems={"right"}
             >
               <Box as="h1" fontSize="6xl" fontWeight="bold" color="white">
-                Your Name
+                {info.name}
               </Box>
               <InputGroup size={"lg"}>
                 <InputLeftAddon
@@ -81,7 +101,7 @@ export default function Page1Test() {
                 <Input
                   type={"text"}
                   size={"lg"}
-                  placeholder={"john@doe.net"}
+                  value={info.email}
                   color={"black"}
                   bg={"white"}
                   rounded={"2xl"}
@@ -95,6 +115,7 @@ export default function Page1Test() {
                 size={"lg"}
                 mt={50}
                 flex={"1 0 auto"}
+                onClick={() => router.push("/profile")}
               >
                 Create Account
               </Button>

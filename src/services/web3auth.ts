@@ -19,6 +19,7 @@ class Web3AuthService {
         "BBxeOVZDPiBp_De5EEUhNF9ij10IbNJviC97g1ZdzBcOC0foOYKYLLwbRNm-2BScIj5xceXSVTTcFenwIontCSQ",
     });
 
+    await this.web3Auth.initModal({});
     const web3AuthProvider = await this.web3Auth.connect();
     if (!web3AuthProvider) {
       throw new Error("Could not connect to Web3Auth provider.");
