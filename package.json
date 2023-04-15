@@ -17,6 +17,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@openzeppelin/contracts": "^4.8.3",
+    "@superfluid-finance/ethereum-contracts": "^1.5.2",
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
