@@ -3,6 +3,7 @@ pragma solidity 0.8.19;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
+// simple whitelist
 contract SuperPlayGuard is Ownable {
     enum Operation {
         Call,
