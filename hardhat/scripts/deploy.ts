@@ -6,7 +6,7 @@ dotenv.config();
 async function main() {
   const SuperPlay = await ethers.getContractFactory("SuperPlay");
   const superPlay = await SuperPlay.deploy(
-    "0x94f26B4c8AD12B18c12f38E878618f7664bdcCE2"
+    process.env.SUPERFLUID_TOKEN_FACTORY_ADDRESS!
   );
   const Guard = await ethers.getContractFactory("SuperPlayGuard");
   const guard = await Guard.deploy();
