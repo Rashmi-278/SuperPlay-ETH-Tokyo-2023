@@ -1,17 +1,20 @@
-import { Flex, Heading } from '@chakra-ui/react'
+import { Flex, Heading, useColorModeValue } from '@chakra-ui/react'
+import Header from './Header'
+
 
 export const Hero = ({ title }: { title: string }) => (
   <Flex
     justifyContent="center"
     alignItems="center"
     height="100vh"
-    bgGradient="linear(to-l, heroGradientStart, heroGradientEnd)"
     bgClip="text"
+    bgImg={'url(https://bit.ly/2Z4KKcF)'}
   >
-    <Heading fontSize="6vw">{title}</Heading>
+
+    <Heading textColor={'black'} fontSize="6vw">{title}</Heading>
   </Flex>
 )
 
 Hero.defaultProps = {
-  title: 'with-chakra-ui-typescript',
+  title: 'Start your journey for free',
 }
