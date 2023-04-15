@@ -1,3 +1,28 @@
+# SuperPlay [Buidling in progress]
+
+## **User Story**
+
+As a gamer, I want to try out web3 games without having to go through the hassle of setting up a wallet and buying assets, so that I can understand how to play the game with no knowledge about crypto. 
+
+## **User Experience**
+
+1. I visit the gaming project's website and register my email address to create a wallet.
+2. Upon registration, the system automatically creates a subdomain of ENS for my wallet.
+3. The private key is sent to my email address, which I can use to access my wallet.
+4. Inside the wallet, I own a small amount of the gaming project's ERC20 token, which is used for the subscription.
+5. I can start playing the game without using any assets in my wallet for a limited time (e.g., 1 week).
+6. During the trial, the gaming project covers the gas fees for my transactions using Biconomy.
+7. After the trial, I can choose to subscribe to the game by paying a fee in the gaming project's ERC20 token, which will be charged to my wallet automatically every week.
+
+## **Features**
+
+- Email registration to create a wallet
+- Automatic subdomain creation using ENS
+- Limited time trial without requiring any assets in the wallet
+- Subscription service using the gaming project's ERC20 token
+- Gas fee coverage during the trial using Biconomy
+
+
 # Example app with [chakra-ui](https://github.com/chakra-ui/chakra-ui) and TypeScript
 
 This example features how to use [chakra-ui](https://github.com/chakra-ui/chakra-ui) as the component library within a Next.js app with TypeScript.
