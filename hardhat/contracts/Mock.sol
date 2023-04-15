@@ -8,3 +8,9 @@ contract MockToken is ERC20 {
         _mint(msg.sender, 1000000000000000000000000);
     }
 }
+
+contract MockContract {
+    function foo() public {}
+
+    function bar() public {}
+}
